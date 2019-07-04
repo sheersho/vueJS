@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>My First Vue App</title>
+
+    <script type= "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+
+
+
+
+</head>
+<body>
+
+
+
+    <footer id = "footer">
+
+        <p>copyright {{date.getFullYear()}}</p>
+
+
+    </footer>
+
+    <div id = "app" >
+
+        <h1>{{count}} </h1>
+
+        <button @click = "increaseCounter">+</button>
+        <button @click = "decreaseCounter">-</button>
+       
+
+        <p v-if = "count%2===0" >The current count is Even</p>
+        <p v-if = "count%2!=0" >The current count is Odd</p>
+        <br><br>
+
+        {{ message }}
+        <input v-model = "testone"  placeholder=" Enter Something">
+
+        <br>
+        {{LastName}} 
+        <input v-model = "testone" placeholder =" Enter">
+        <br>
+        {{PhoneNumber}}
+        <input v-model = "testone" placeholder = "9876243567">
+        {{testone}}
+        <br>
+        <br>
+        <button type = "submit" value = "Login">Login</button>
+
+        
+
+    </div>
+
+    <script>
+    new Vue({  
+    el: '#app',
+    data: {
+        message:'First Name',
+        LastName: 'Last Name',
+        PhoneNumber: 'Mobile',
+
+
+       testone:0,
+
+        count: 0,
+
+        
+
+
+    methods: {
+
+        increaseCounter:function()
+        {
+            console.log('We are in the function')
+            this.count++
+        },
+
+        decreaseCounter:function()
+        {
+            console.log('WE are decreaseing the function')
+            this.count--
+        },
+
+
+        
+    }
+    }
+
+
+    });
+
+    new Vue({
+
+        el: '#footer',
+
+        data:{
+
+            date: new Date()
+        }
+
+
+    })
+
+
+</script>
+  
+</body>
+</html>
