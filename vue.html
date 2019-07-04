@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>My First Vue App</title>
+
+    <script type= "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            border-radius: 0 !important
+        }
+
+        body{
+
+            background-color: #e7f7f9;
+            font-family: 'Poppins','sans-serif';
+        }
+
+
+        center_div{
+         margin: 0 auto;
+         width:100%
+         
+        }
+    
+    
+    </style>
+
+
+</head>
+
+<body>
+
+
+
+    <footer id = "footer">
+
+        <p>Sheersho Inc. Copyright {{date.getFullYear()}}</p>
+
+
+    </footer>
+
+    <div id = "app"  >
+
+        <h1> Welcome Back Sheersho</h1>
+        <br>
+
+            <form role="form" class = "center_div">
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label for="code">Name</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="form-group col-lg-4 ">
+                            <label for="code">Email</label>
+                            <input type="text" class="form-control input-normal" />
+                        </div>
+                    </div>
+                    
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                       
+                    
+             </form>
+
+             <br>
+     
+        
+        <form class = "center_div">
+        {{ message }}
+        <input v-model = "testone"  placeholder=" Enter Something">
+
+        <br>
+        {{LastName}} 
+        <input v-model = "testone" placeholder =" Enter">
+        <br>
+        {{PhoneNumber}}
+        <input v-model = "testone" placeholder = "9876243567">
+        {{testone}}
+        <br>
+        <br>
+        <button type = "submit" class = "btn btn-primary" value = "Login">Login</button>
+
+        </form>
+
+
+        <h1>{{count}} </h1>
+
+        <button @click = "increaseCounter">+</button>
+        <button @click = "decreaseCounter">-</button>
+       
+
+        <p v-if = "count%2===0" >The current count is Even</p>
+        <p v-if = "count%2!=0" >The current count is Odd</p>
+        <br><br>
+
+        
+
+    </div>
+
+    <script>
+    new Vue({  
+    el: '#app',
+    data: {
+        message:'First Name',
+        LastName: 'Last Name',
+        PhoneNumber: 'Mobile',
+       testone:0,
+        count: 0,
+        
+    methods: {
+        increaseCounter:function()
+        {
+            console.log('We are in the function')
+            this.count++
+        },
+        decreaseCounter:function()
+        {
+            console.log('WE are decreaseing the function')
+            this.count--
+        },
+        
+    }
+    }
+    });
+    new Vue({
+        el: '#footer',
+        data:{
+            date: new Date()
+        }
+    })
+</script>
+  
+</body>
+</html>
