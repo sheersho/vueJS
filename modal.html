@@ -51,7 +51,10 @@
                             <button @click = "modalAction()" class=" justify-right mt-4 bg-red-500 text-white font-bold px-4 py-2 full rounded">Close</button>
                             <button @click = "login()" class=" justify-right mt-4 bg-blue-500 text-white font-bold px-4 py-2 full rounded">Login</button>
 
-                        
+                            <div v-if = "logincheck"  class="mt-4 bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-2 py-2" role="alert">
+                                    <p class="font-bold">Thank You Sheersho</p>
+                                    <p class="text-sm">You have successfully logged in</p>
+                            </div>
                         </div>
                 </div>  
             </transition>
